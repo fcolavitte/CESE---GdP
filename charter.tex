@@ -7,7 +7,8 @@ codirector, % Uncomment to add a codirector to the title page
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+%\titulo{Título del proyecto} 
+\titulo{Dispositivo para pruebas de comunicación con satélites} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -17,18 +18,18 @@ codirector, % Uncomment to add a codirector to the title page
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Nombre del Autor} 
+\autor{Facundo G. Colavitte} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{\textcolor{red}{Director a definir}}
+\pertenenciaDirector{\textcolor{red}{pertenencia}} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-\pertenenciaCoDirector{FIUBA}
+%\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+%\pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{David Vilaseca}
+\empresaCliente{Satellogic}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -38,9 +39,9 @@ codirector, % Uncomment to add a codirector to the title page
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{30 de abril de 2021}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2021} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2022}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{20 de octubre de 2022}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{8 de diciembre de 2022} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{21 de agosto de 2023}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -68,14 +69,11 @@ codirector, % Uncomment to add a codirector to the title page
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 4 inclusive                 & dd/mm/aaaa \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
-%4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
+v0.0      & Creación del documento                                 &\fechaInicioName \\ \hline
+v1.0      & Se completa hasta el punto 5 inclusive                 & 03 de noviembre de 2022 \\ \hline
+v2.0      & Se completa hasta el punto 9 inclusive                & 10 de noviembre de 2022 \\ \hline
+%v3.0      & Se completa hasta el punto 12 inclusive               & 17 de noviembre de 2022 \\ \hline
+%v4.0      & Se completa el plan	                               & 24 de noviembre de 2022 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -92,7 +90,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el diseño de un prototipo modular, versátil, para realizar pruebas de comunicación unidireccional con satélites de órbita baja usando un módulo LoRa, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$30.000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,57 +113,38 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
+La realización del siguiente proyecto se basa en la construcción de un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa a los medios de comunicación tradicionales. Por esta razón, se realizará un dispositivo modular, versátil, que permita enviar datos tomados en tierra a los satélite en órbita baja para realizar las pruebas pertinentes.
 
-\begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección
+La idea no es probar con un satélite real ya que el uso de comunicación por LorRa es una propuesta de la empresa dado que ciertos módulos trabajan a frecuencias similares. Es por esto que el proyecto será validado por la comunicación entre dos prototipos en tierra que cumplan con las requerimientos teóricos que Satellogic solicita. En caso de realizarse una prueba con el satélite la no recepción del mensaje no involucrará fallas en el diseño del sistema.
+Pese a esto, el dispositivo deberá ser diseñado considerando que su finalidad sea una comunicación desde la tierra hacia el satélite a través de un módulo LoRa de forma unidireccional a una frecuencia cercana a 920 MHz. Los datos a enviar por el prototipo deben poder ser tomados por USB y WiFi.
 
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
 
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
-
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
+Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
 \begin{itemize}
-	\item ¿Cómo se vincula este proyecto con la misión de la organización?
-	\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-	\item ¿Cuáles son las necesidades que debe satisfacer?
-	\item ¿Por dónde pasa la innovación?
+	\item Un puerto de conexión USB para comunicación con ordenadores locales.
+	\item Conexión WiFi para ser manejado de forma remota.
+	\item Alimentación externa.
+	\item Puerto de conexión para antena tipo QFH.
 \end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase, se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
-
-%\vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
-\caption{Diagrama en bloques del sistema}
+\includegraphics[width=.8\textwidth]{./Figuras/Diagrama de bloques.jpg}
+\caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-\end{consigna}
+El presente proyecto se destaca en la incorporación de conexión WiFi para recepción de los datos. Dado que es condición necesaria que la comunicación se realice a cielo abierto, el contar con WiFi permite establecer esta comunicación aún cuando haya condiciones climáticas desfavorables para la presencia del usuario.
 
+\textcolor{red}{
+En el mercado no existe a día de hoy un dispositivo específico para tal finalidad por lo que no se presenta sistemas comerciales similares de los cuales diferenciarse.
+}
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -174,114 +153,88 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   & \clientename      &\empclientename	& Director de Research 	\\ \hline
+Cliente       & \clientename      &\empclientename	& Director de Research 	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Scasserra Marco   & FIUBA         	& Alumno   	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Pega Luciano      &\empclientename	& Ingeniero en Research  \\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
 
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-	\item Orientador: María Gómez va a poder ayudar mucho con la definición de los requerimientos.
+	\item Pega Luciano: trabaja en la misma área que el cliente. Puede responder preguntas de requerimientos técnicos y validar el proyecto.
+	\item Scasserra Marco: trabaja en un proyecto final del CESE de la misma temática para el mismo cliente.
+	\item \supname: posee experiencia en módulos LoRa y sistemas de almacenamiento de energía.
 \end{itemize}
-
-\end{consigna}
 
 
 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+El propósito del proyecto es diseñar un dispositivo que permita realizar pruebas de comunicación con satélites de órbita baja para una posterior implementación de dicha tecnología en dispositivos IoT. El prototípo debe ser versátil y estar conformado principalmente por módulos electrónicos comerciales para facilitar su posterior modificación según lo ameriten las pruebas.
 
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-\end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna}
+El proyecto incluye:
+\begin{itemize}
+	\item Un prototipo físico con el firmware cargado.
+	\item Código fuente del firmware.
+	\item Esquemático del hardware.
+	\item Sistema de alimentación.
+\end{itemize}
+El proyecto no incluye:
+\begin{itemize}
+	\item Dispositivo comercial.
+	\item Script que decodifica la señal IQ recibida en el satélite.
+	\item Software de escritorio para envío de datos al dispositivo.
+	\item Montaje del dispositivo.
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1
-	\item Supuesto 2...
+	\item Si dos dispositivos se pueden comunicar en tierra por medio de módulos LoRa la señal puede ser recibida por un satélite que esté dentro del alcance del conjunto módulo LoRa-Antena.
+	\item Disponibilidad de todos los materiales necesaros para la construcción del prototípo por parte de la empresa Satellogic. Los mismos se detallarán en la Lista de materiales conforme se realice el proyecto.
+	\item No se presentaran retenciones a importaciones de los materiales necesarios que dificulten su disponibilidad.
+	\item Se dispondrá de al menos 80 horas mensuales en promedio para dedicar al proyecto.
+	\item Los materiales necesarios para las pruebas y construcción de prototipos se dispondran en un tiempo no mayor a dos semanas tras solicitarlos.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-\end{consigna}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
-
 \begin{enumerate}
 	\item Requerimientos funcionales
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item El dispositivo debe ser simple de replicar, preferentemente ensamblable con módulos comerciales.
+			\item El dispositivo debe ser versátil, pudiéndose adaptar a distintas \textcolor{red}{características de comunicación} de forma simple.
+			\item El módulo LoRa debe ser un E22 900M30S de EBYTE (30 dBm).
+			\item El dispositivo debe poder ser lo más cercano posible a la metodología "plug 'n play".
+			\item El usuario debe poder enviar mensajes por medio de un terminal serie.
 		\end{enumerate}
 	\item Requerimientos de documentación
 		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
+			\item Manual de usuario.
+			\item Documentación del firmware.
 		\end{enumerate}
-	\item Requerimiento de testing...
+	\item Requerimiento de testing
+		\begin{enumerate}
+			\item Se debe poder establecer comunicación por LoRa con otro dispositivo en tierra que posea igual módulo con una distancia menor a un metro.
+		\end{enumerate}
+	\textcolor{red}{
 	\item Requerimientos de la interfaz...
 	\item Requerimientos interoperabilidad...
-	\item etc...
+	}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
