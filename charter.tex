@@ -239,6 +239,15 @@ Para el desarrollo del presente proyecto se supone que:
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
+\begin{itemize}
+	\item “Como usuario, quiero que el dispositivo sea compacto, robusto y ligero, de modo de poder llevarlo al lugar donde debe realizarse el experimento.”
+	\item “Como usuario, quiero que el dispositivo se conecte a WiFi para poder operarlo de manera remota.“
+	\item “Como usuario, quiero que la interfaz de comunicación sea CLI, para que la operación sea ágil.”
+	\item “Como usuario, quiero que el dispositivo cuente con un conector de RF, de modo de poder elegir distintos tipos de antenas, o incluso agregar una etapa de amplificación adicional, de ser necesario.”
+	\item “Como usuario, quiero que el dispositivo sea suficientemente pequeño como para poder integrarse en un gabinete estanco, lo cual permitiría a operación en intemperie.”
+\end{itemize}
+
+
 \begin{consigna}{red}
 Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
 
@@ -250,23 +259,77 @@ Se debe indicar explícitamente el criterio para calcular los \textit{story poin
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
-
+Los entregables del proyecto son:
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
-	\item Informe final
-	\item etc...
+	\item Manual de usuario.
+	\item Diagrama de circuitos esquemáticos.
+	\item Código fuente del firmware.
+	\item Archivo Gerber.
+	\item Lista de componentes electrónicos.
+	\item Un prototipo funcional.
 \end{itemize}
 
-\end{consigna}
+
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
+
+\begin{enumerate}
+\item Recopilación general de información sobre el proyecto (50 hs)
+	\begin{enumerate}
+	\item Investigar sobre tecnología WiFi. (10 hs)
+	\item Investigar sobre tecnología LoRa. (10 hs)
+	\item Investigar específica sobre módulo LoRa E22. (10 hs)
+	\item Investigar Investigación sobre antenas QFH. (10 hs)
+	\item Investigar Investigación sobre base de datos web. (10 hs)
+	\end{enumerate}
+\item Planificación del proyecto (30 hs)
+	\begin{enumerate}
+	\item Realizar planificación del proyecto (30 hs)
+	\item Tarea 2 (tantas hs)
+	\item Tarea 3 (tantas hs)
+	\end{enumerate}
+\item Hardware (140 hs)
+	\begin{enumerate}
+	\item Selección de componentes (12 hs)
+	\item Diseño del circuito esquemático (28 hs)
+	\item Diseño del PCB (30 hs)
+	\item Fabricación y ensamblado del PCB (30 hs)
+	\item Pruebas y validación del hardware (40 hs)
+	\end{enumerate}
+\item Firmware (\textcolor{red}{---} hs)
+	\begin{enumerate}
+	\item Desarrollo de arquitectura del firmware (16 hs)
+	\item Diseño de firmware (32 hs)
+	\item Desarrollo de pruebas para firmware (32 hs)
+	\item Programación del firmware (40 hs)
+	\item Verificación y validación del firmware (24 hs)
+	\end{enumerate}
+\item \textcolor{red}{???? (--- hs)}
+	\begin{enumerate}
+	\item Desarrollo de arquitectura del firmware (16 hs)
+	\item Diseño de firmware (32 hs)
+	\item Desarrollo de pruebas para firmware (32 hs)
+	\item Programación del firmware (40 hs)
+	\item Verificación y validación del firmware (24 hs)
+	\end{enumerate}
+\item Diseño del gabinete (40 hs)
+	\begin{enumerate}
+	\item Diseño de la carcasa de los sensores (20 hs)
+	\item Armado del gabinete de los nodos sensores (20 hs)
+	\end{enumerate}
+\item Procesos finales (\textcolor{red}{---} hs)
+	\begin{enumerate}
+	\item Elaboración del informe de avance (20 hs)
+	\item Evaluación de requerimientos (25 hs)
+	\item Elaboración de la memoria del proyecto (40 hs)
+	\item Preparación de la presentación final (35 hs)
+	\end{enumerate}
+\end{enumerate}
+
+
+
+Cantidad total de horas: (tantas hs)
 
 \begin{consigna}{red}
 El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
