@@ -113,16 +113,16 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-La realización del siguiente proyecto se basa en la construcción de un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa a los medios de comunicación tradicionales. Por esta razón, se realizará un dispositivo modular, versátil, que permita enviar datos tomados en tierra a los satélite en órbita baja para realizar las pruebas pertinentes.
+El siguiente proyecto tendrá como objetivo desarrollar un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa a los medios de comunicación tradicionales. Para esto, se realizará un dispositivo modular, que permita cambiar fácilmente la antena de transmición, incorporar estapas de amplificación de señal y modificación y carga del firmware de forma simple por USB. Esto da como resultado un dispositivo versátil, que permite enviar datos tomados en tierra a los satélite en órbita baja para realizar las pruebas pertinentes para el estudio de la factibilidad técnica y optimización de la comunicación antes mencionada.
 
 La idea no es probar con un satélite real ya que el uso de comunicación por LorRa es una propuesta de la empresa dado que ciertos módulos trabajan a frecuencias similares. Es por esto que el proyecto será validado por la comunicación entre dos prototipos en tierra que cumplan con las requerimientos teóricos que Satellogic solicita. En caso de realizarse una prueba con el satélite la no recepción del mensaje no involucrará fallas en el diseño del sistema.
-Pese a esto, el dispositivo deberá ser diseñado considerando que su finalidad sea una comunicación desde la tierra hacia el satélite a través de un módulo LoRa de forma unidireccional a una frecuencia cercana a 920 MHz. Los datos a enviar por el prototipo deben poder ser tomados por USB y WiFi.
+Pese a esto, el dispositivo deberá ser diseñado considerando que su finalidad sea una comunicación desde la tierra hacia el satélite a través de un módulo LoRa de forma unidireccional a una frecuencia cercana a 920 MHz. Los datos a enviar por el prototipo deben poder ser tomados por USB y Wi-Fi.
 
 
 Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
 \begin{itemize}
 	\item Un puerto de conexión USB para comunicación con ordenadores locales.
-	\item Conexión WiFi para ser manejado de forma remota.
+	\item Conexión Wi-Fi para ser manejado de forma remota.
 	\item Alimentación externa.
 	\item Puerto de conexión para antena tipo QFH.
 \end{itemize}
@@ -136,11 +136,7 @@ Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
 
 \vspace{25px}
 
-El presente proyecto se destaca en la incorporación de conexión WiFi para recepción de los datos. Dado que es condición necesaria que la comunicación se realice a cielo abierto, el contar con WiFi permite establecer esta comunicación aún cuando haya condiciones climáticas desfavorables para la presencia del usuario.
-
-\textcolor{red}{
-En el mercado no existe a día de hoy un dispositivo específico para tal finalidad por lo que no se presenta sistemas comerciales similares de los cuales diferenciarse.
-}
+A día de hoy no existe en el mercado un dispositivo comercial específico para tal finalidad, por lo que este es el principal valor. No obstante, desde la empresa Satellogic, se nos asignó esta taréa a dos alumnos del posgrado. En dicho contexo, el presente proyecto se destaca en la incorporación de conexión Wi-Fi para recepción de los datos. Dado que es condición necesaria que la comunicación se realice a cielo abierto, el contar con Wi-Fi permite establecer esta comunicación aún cuando haya condiciones climáticas desfavorables para la presencia del usuario.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -203,7 +199,7 @@ Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
 	\item Si dos dispositivos se pueden comunicar en tierra por medio de módulos LoRa la señal puede ser recibida por un satélite que esté dentro del alcance del conjunto módulo LoRa-Antena.
-	\item Disponibilidad de todos los materiales necesaros para la construcción del prototípo por parte de la empresa Satellogic. Los mismos se detallarán en la Lista de materiales conforme se realice el proyecto.
+	\item Disponibilidad de todos los materiales necesarios para la construcción del prototípo por parte de la empresa Satellogic. Los mismos se detallarán en la Lista de materiales conforme se realice el proyecto.
 	\item No se presentaran retenciones a importaciones de los materiales necesarios que dificulten su disponibilidad.
 	\item Se dispondrá de al menos 80 horas mensuales en promedio para dedicar al proyecto.
 	\item Los materiales necesarios para las pruebas y construcción de prototipos se dispondran en un tiempo no mayor a dos semanas tras solicitarlos.
@@ -215,56 +211,92 @@ Para el desarrollo del presente proyecto se supone que:
 \begin{enumerate}
 	\item Requerimientos funcionales
 		\begin{enumerate}
-			\item El dispositivo debe ser simple de replicar, preferentemente ensamblable con módulos comerciales.
-			\item El dispositivo debe ser versátil, pudiéndose adaptar a distintas \textcolor{red}{características de comunicación} de forma simple.
-			\item El módulo LoRa debe ser un E22 900M30S de EBYTE (30 dBm).
-			\item El dispositivo debe poder ser lo más cercano posible a la metodología "plug 'n play".
-			\item El usuario debe poder enviar mensajes por medio de un terminal serie.
+			\item Se debe poder cambiar la antena y agregar etapas de amplificación sin modificar la PCB.
+			\item Se debe poseer un puerto de conexión incluido en la PCB para cargar el firmware sin necesidad de extraer el microcontrolador.
+			\item El módulo LoRa debe ser un E22 900M30S de EBYTE según solicitud de la empresa.
+			\item El dispositivo debe poder funcionar solo conectando perisféricos y fuentes de alimentación, sin requerir un proceso de configuración superior a cinco minutos para ponerlo en funcionamiento.
+			\item El usuario debe poder enviar mensajes desde una computadora al prototipo por medio de un terminal serie por USB.
+			\item El dispositivo debe tener alimentación propia ya sea con fuente externa o con baterías.
+			\item El sistema deberá contar con comunicación WiFi para acceder a la base de datos web.
+			\item El dispositivo debe poder recibir datos por USB sin encriptar. Esto permite el uso de una interfaz serial genérica.
 		\end{enumerate}
 	\item Requerimientos de documentación
 		\begin{enumerate}
-			\item Manual de usuario.
-			\item Documentación del firmware.
+			\item Se debe entregar al cliente un manual de usuario que describa el funcionamiento y la operación del prototipo.
+			\item Se debe entregar al cliente la documentación del firmware desarrollado con un detalle o  explicación detallada de cada función desarrollada.
+			\item Se debe realizar al menos un informe de avance dirigido al cliente previo a la finalización del proyecto.
 		\end{enumerate}
 	\item Requerimiento de testing
 		\begin{enumerate}
-			\item Se debe poder establecer comunicación por LoRa con otro dispositivo en tierra que posea igual módulo con una distancia menor a un metro.
+			\item Se deberá testear comunicación USB.
+			\item Se deberá testear comunicación Wi-Fi.
+			\item Se deberá testear el acceso a la base de datos web de forma aislada.
+			\item Se debe testear la comunicación LoRa con otro dispositivo en tierra que recepciones la señal que el prototipo emite. Para el testeo los dispositivos pueden estar a distancias inferiores a un metro y sin uso obligatorio de la antena.
 		\end{enumerate}
-	\textcolor{red}{
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	}
 \end{enumerate}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{itemize}
+A continuación se enunciarán las historias de usuarios y su ponderación (story points). La estimación de la ponderación se realizará por medio de la serie Fibonacci. Se evaluará dificultad, complejidad y riesgo. Los pesos en la evaluación corresponderán a 0 para bajo y 8 para alto. El pseo final será el valor de la suma de las tres características mencionadas. En caso de que la suma no sea igual a un número de la secuencia de Fibonacci se le asignará a la historia el valor próximo superior.
+
+\begin{enumerate}
 	\item “Como usuario, quiero que el dispositivo sea compacto, robusto y ligero, de modo de poder llevarlo al lugar donde debe realizarse el experimento.”
-	\item “Como usuario, quiero que el dispositivo se conecte a WiFi para poder operarlo de manera remota.“
-	\item “Como usuario, quiero que la interfaz de comunicación sea CLI, para que la operación sea ágil.”
-	\item “Como usuario, quiero que el dispositivo cuente con un conector de RF, de modo de poder elegir distintos tipos de antenas, o incluso agregar una etapa de amplificación adicional, de ser necesario.”
-	\item “Como usuario, quiero que el dispositivo sea suficientemente pequeño como para poder integrarse en un gabinete estanco, lo cual permitiría a operación en intemperie.”
-\end{itemize}
+		\begin{itemize}
+		\item Dificultad: media/baja (3). Implica realizar un dimensionamiento de la batería y selección de la envolvente plástica.
+		\item Complejidad: media (5). Se requiere realizar un diseño para la envolvente plásica con una protección IP32 o superior. El dispositivo debe contar con suficiente capacidad de batería para una hora de autonomía.
+		\item riesgo: media/baja (3). El equipo debe estar cubierto de la lluvia de forma directa, en caso contrario la envolvente deberá tener un grado de protección IP65 o superior.
+		\item Story point: 13.
+		\end{itemize}
+\vspace{5mm}
+	\item “Como usuario, quiero que el dispositivo se conecte a Wi-Fi para poder operarlo de manera remota.“
+		\begin{itemize}
+		\item Dificultad: alta (8). Implica gran cantidad de horas para realizar una base de datos web y la programación de la comunicación Wi-Fi, interconexión con la base de datos y procesamiento de los datos recibidos por JSON.
+		\item Complejidad: media (5). La comunicación con la base de datos por medio de Wi-Fi y procesamiento de los archivos json implica una dificultad media.
+		\item riesgo: media (5). Existe el riesgo de que no se tenga una potencia de señal Wi-Fi suficiente en la ubicación en la que se desea colocar el dispositivo.
+		\item Story point: 21.
+		\end{itemize}
+		
+\vspace{5mm}
+		
+	\item “Como usuario, quiero que la interfaz de comunicación sea a través de una interfaz de linea de comando (CLI), para que la operación sea ágil.”
+		\begin{itemize}
+		\item Dificultad: media (5). Se requiere realizar funcionalidades que analicen la recepción por UART para diferenciar un comando a ejecutar de un simple texto a enviar por LoRa.
+		\item Complejidad: media/baja (3). Se requiere una comunicacion UART con conversión a USB. El circuito integrado que realiza dicha tarea está incluido en el módulo Node-MCU.
+		\item riesgo: bajo (1). No se presentan riesgos.
+		\item Story point: 13.
+		\end{itemize}
+				
+\vspace{5mm}
+	
+	\item “Como usuario, quiero que el dispositivo cuente con un conector de radio frecuencia (RF), de modo de poder elegir distintos tipos de antenas, o incluso agregar una etapa de amplificación adicional, de ser necesario.”
+		\begin{itemize}
+		\item Dificultad: media/baja (3). Se debe buscar el foot print del conector que mejor se adapte a las antenas que solicita Satellogic.
+		\item Complejidad: baja (1). Se debe agregar el foot print del conector en el diseño de la PCB.
+		\item riesgo: medio/bajo (3). En caso de utilizarse antenas con conector no compatible se debe adaptar la antena al prototipo.
+		\item Story point: 8.
+		\end{itemize}
+				
+\vspace{5mm}
+	
+	\item “Como usuario, quiero que el dispositivo sea suficientemente pequeño como para poder integrarse en un gabinete estanco, lo cual permitiría la operación en intemperie.”
+		\begin{itemize}
+		\item Dificultad: baja (1). Se debe buscar un gabinete estanco comercial apto para las medidas del prototipo.
+		\item Complejidad: baja (1). No presenta complejidad.
+		\item riesgo: medio/bajo (3). En caso de que se desee que el dispositivo cuente con terminales para realizar conecciones por fuera del gabinete, las mismas deben ser aptas para exterior.
+		\item Story point: 5.
+		\end{itemize}
+\end{enumerate}
 
-
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
-
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
 Los entregables del proyecto son:
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Archivo Gerber.
+	\item Manual de usuario del dispositivo.
+	\item Diagrama esquemático del circuito.
+	\item Código fuente.
 	\item Lista de componentes electrónicos.
 	\item Un prototipo funcional.
 \end{itemize}
@@ -275,93 +307,58 @@ Los entregables del proyecto son:
 \label{sec:wbs}
 
 \begin{enumerate}
-\item Recopilación general de información sobre el proyecto (50 hs)
+\item Recopilación general de información sobre el proyecto (60 hs)
 	\begin{enumerate}
-	\item Investigar sobre tecnología WiFi. (10 hs)
-	\item Investigar sobre tecnología LoRa. (10 hs)
-	\item Investigar específica sobre módulo LoRa E22. (10 hs)
-	\item Investigar Investigación sobre antenas QFH. (10 hs)
-	\item Investigar Investigación sobre base de datos web. (10 hs)
+	\item Investigar sobre tecnología Wi-Fi. (10 hs)
+	\item Investigar sobre tecnología LoRa. (20 hs)
+	\item Investigación específica sobre módulo LoRa E22. (10 hs)
+	\item Investigar sobre antenas QFH. (10 hs)
+	\item Investigar sobre base de datos web. (10 hs)
 	\end{enumerate}
-\item Planificación del proyecto (30 hs)
+\item Planificación del proyecto (40 hs)
 	\begin{enumerate}
-	\item Realizar planificación del proyecto (30 hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Realizar planificación del proyecto. (40 hs)
 	\end{enumerate}
-\item Hardware (140 hs)
+\item Hardware (120 hs)
 	\begin{enumerate}
-	\item Selección de componentes (12 hs)
-	\item Diseño del circuito esquemático (28 hs)
-	\item Diseño del PCB (30 hs)
-	\item Fabricación y ensamblado del PCB (30 hs)
-	\item Pruebas y validación del hardware (40 hs)
+	\item Diseño del circuito esquemático. (25 hs)
+	\item Cálculo de sistema de almacenamiento de energía. (20 hs)
+	\item Selección de componentes. (15 hs)
+	\item Diseño del PCB. (30 hs)
+	\item Fabricación y ensamblado del PCB. (30 hs)
 	\end{enumerate}
-\item Firmware (\textcolor{red}{---} hs)
+\item Firmware (120 hs)
 	\begin{enumerate}
-	\item Desarrollo de arquitectura del firmware (16 hs)
-	\item Diseño de firmware (32 hs)
-	\item Desarrollo de pruebas para firmware (32 hs)
-	\item Programación del firmware (40 hs)
-	\item Verificación y validación del firmware (24 hs)
+	\item Desarrollo de arquitectura del firmware. (20 hs)
+	\item Diseño y programación de la máquina de estados finitos. (20 hs)
+	\item Diseño y programación de comunicación LoRa. (10 hs)
+	\item Diseño y programación de comunicación UART. (10 hs)
+	\item Diseño y programación de comunicación Wi-Fi y base de datos. (40 hs)
+	\item Configuración de la base de datos. (10 hs)
+	\item Integración de las partes del firmware. (10 hs)
 	\end{enumerate}
-\item \textcolor{red}{???? (--- hs)}
+\item Pruebas (70 hs)
 	\begin{enumerate}
-	\item Desarrollo de arquitectura del firmware (16 hs)
-	\item Diseño de firmware (32 hs)
-	\item Desarrollo de pruebas para firmware (32 hs)
-	\item Programación del firmware (40 hs)
-	\item Verificación y validación del firmware (24 hs)
+	\item Pruebas y validación del hardware. (20 hs)
+	\item Desarrollo de pruebas para el firmware. (30 hs)
+	\item Verificación y validación del firmware. (20 hs)
 	\end{enumerate}
-\item Diseño del gabinete (40 hs)
+\item Gabinete (50 hs)
 	\begin{enumerate}
-	\item Diseño de la carcasa de los sensores (20 hs)
-	\item Armado del gabinete de los nodos sensores (20 hs)
+	\item Selección del gabinete. (10 hs)
+	\item Montaje del prototipo en gabinete. (40 hs)
 	\end{enumerate}
-\item Procesos finales (\textcolor{red}{---} hs)
+\item Procesos finales (140 hs)
 	\begin{enumerate}
-	\item Elaboración del informe de avance (20 hs)
-	\item Evaluación de requerimientos (25 hs)
-	\item Elaboración de la memoria del proyecto (40 hs)
-	\item Preparación de la presentación final (35 hs)
+	\item Elaboración del informe de avance. (30 hs)
+	\item Evaluación de requerimientos. (30 hs)
+	\item Elaboración de la memoria del proyecto. (40 hs)
+	\item Preparación de la presentación final. (40 hs)
 	\end{enumerate}
 \end{enumerate}
 
 
-
-Cantidad total de horas: (tantas hs)
-
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
-\begin{enumerate}
-\item Grupo de tareas 1
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\end{enumerate}
-\item Grupo de tareas 2
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\end{enumerate}
-\item Grupo de tareas 3
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
-	\end{enumerate}
-\end{enumerate}
-
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
-
-\end{consigna}
+Cantidad total de horas: 600 hs.
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
