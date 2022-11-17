@@ -28,7 +28,7 @@ codirector, % Uncomment to add a codirector to the title page
 %\pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{David Vilaseca}
+\cliente{Ing. David Vilaseca}
 \empresaCliente{Satellogic}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
@@ -72,7 +72,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 v0.0      & Creación del documento                                 &\fechaInicioName \\ \hline
 v1.0      & Se completa hasta el punto 5 inclusive                 & 03 de noviembre de 2022 \\ \hline
 v2.0      & Se completa hasta el punto 9 inclusive                & 10 de noviembre de 2022 \\ \hline
-%v3.0      & Se completa hasta el punto 12 inclusive               & 17 de noviembre de 2022 \\ \hline
+v3.0      & Se completa hasta el punto 12 inclusive               & 17 de noviembre de 2022 \\ \hline
 %v4.0      & Se completa el plan	                               & 24 de noviembre de 2022 \\ \hline
 \end{tabularx}
 \end{table}
@@ -113,10 +113,10 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-El siguiente proyecto tendrá como objetivo desarrollar un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa a los medios de comunicación tradicionales. Para esto, se realizará un dispositivo modular, que permita cambiar fácilmente la antena de transmición, incorporar estapas de amplificación de señal y modificación y carga del firmware de forma simple por USB. Esto da como resultado un dispositivo versátil, que permite enviar datos tomados en tierra a los satélite en órbita baja para realizar las pruebas pertinentes para el estudio de la factibilidad técnica y optimización de la comunicación antes mencionada.
+El siguiente proyecto tendrá como objetivo desarrollar un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa económica a los medios de comunicación tradicionales. Para esto, se realizará un dispositivo modular, que permita cambiar fácilmente la antena de transmición, incorporar estapas de amplificación de señal y modificación y carga del firmware de forma simple por USB. Esto da como resultado un dispositivo versátil que permite enviar datos tomados en tierra y emitirlos a la frecuencia de comunicación de los satélite de Satellogic.
 
-La idea no es probar con un satélite real ya que el uso de comunicación por LorRa es una propuesta de la empresa dado que ciertos módulos trabajan a frecuencias similares. Es por esto que el proyecto será validado por la comunicación entre dos prototipos en tierra que cumplan con las requerimientos teóricos que Satellogic solicita. En caso de realizarse una prueba con el satélite la no recepción del mensaje no involucrará fallas en el diseño del sistema.
-Pese a esto, el dispositivo deberá ser diseñado considerando que su finalidad sea una comunicación desde la tierra hacia el satélite a través de un módulo LoRa de forma unidireccional a una frecuencia cercana a 920 MHz. Los datos a enviar por el prototipo deben poder ser tomados por USB y Wi-Fi.
+Durante el actual proyecto solo se realizará comunicación entre dispositivos en tierra, no una comunicación real con un satélite. Tras finalizar el proyecto, la empresa probará las comunicaciones con los satélites en órbita, quedando dicha prueba fuera del alcance del presente trabajo. La comunicación descrita previamente entre dispositivos IoT y satélites no existe hoy en día y Satelogic tiene la hipótesis de que la comunicación LoRa a 920 MHz podría funciona.
+El dispositivo deberá emitir señal a través de un módulo LoRa de forma unidireccional. Los datos a enviar por el prototipo deben poder ser tomados por USB o Wi-Fi.
 
 
 Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
@@ -136,7 +136,8 @@ Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
 
 \vspace{25px}
 
-A día de hoy no existe en el mercado un dispositivo comercial específico para tal finalidad, por lo que este es el principal valor. No obstante, desde la empresa Satellogic, se nos asignó esta taréa a dos alumnos del posgrado. En dicho contexo, el presente proyecto se destaca en la incorporación de conexión Wi-Fi para recepción de los datos. Dado que es condición necesaria que la comunicación se realice a cielo abierto, el contar con Wi-Fi permite establecer esta comunicación aún cuando haya condiciones climáticas desfavorables para la presencia del usuario.
+La propuesta de valor del proyecto es que a día de hoy no existe en el mercado un dispositivo comercial específico para tomar datos por USB y enviarlos a satélites de órbita baja de forma económica.
+El desarrollo de este dispositivo se hará a través de dos trabajos de posgrado, uno es este, que se destaca en incorporar conexión Wi-Fi. Esto permite que el dispositivo pueda utilizarse de forma remota incluso cuando las condiciones climáticas no sean óptimas para el personal que lo comandará.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -152,9 +153,9 @@ Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Auspiciante   & \clientename      &\empclientename	& Director de Research 	\\ \hline
 Cliente       & \clientename      &\empclientename	& Director de Research 	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores & Scasserra Marco   & FIUBA         	& Alumno   	\\ \hline
+Colaboradores & Ing. Scasserra Marco   & FIUBA         	& Alumno   	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Usuario final & Pega Luciano      &\empclientename	& Ingeniero en Research  \\ \hline
+Usuario final & Ing. Pega Luciano      &\empclientename	& Ingeniero en Research  \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -162,7 +163,7 @@ Usuario final & Pega Luciano      &\empclientename	& Ingeniero en Research  \\ \
 \begin{itemize}
 	\item Pega Luciano: trabaja en la misma área que el cliente. Puede responder preguntas de requerimientos técnicos y validar el proyecto.
 	\item Scasserra Marco: trabaja en un proyecto final del CESE de la misma temática para el mismo cliente.
-	\item \supname: posee experiencia en módulos LoRa y sistemas de almacenamiento de energía.
+	\item \supname: posee experiencia en módulos LoRa.
 \end{itemize}
 
 
@@ -212,12 +213,12 @@ Para el desarrollo del presente proyecto se supone que:
 	\item Requerimientos funcionales
 		\begin{enumerate}
 			\item Se debe poder cambiar la antena y agregar etapas de amplificación sin modificar la PCB.
-			\item Se debe poseer un puerto de conexión incluido en la PCB para cargar el firmware sin necesidad de extraer el microcontrolador.
+			\item El dispositivo debe poseer un puerto de conexión incluido en la PCB para cargar el firmware sin necesidad de extraer el microcontrolador.
 			\item El módulo LoRa debe ser un E22 900M30S de EBYTE según solicitud de la empresa.
 			\item El dispositivo debe poder funcionar solo conectando perisféricos y fuentes de alimentación, sin requerir un proceso de configuración superior a cinco minutos para ponerlo en funcionamiento.
 			\item El usuario debe poder enviar mensajes desde una computadora al prototipo por medio de un terminal serie por USB.
 			\item El dispositivo debe tener alimentación propia ya sea con fuente externa o con baterías.
-			\item El sistema deberá contar con comunicación WiFi para acceder a la base de datos web.
+			\item El sistema deberá contar con comunicación Wi-Fi para acceder a la base de datos web.
 			\item El dispositivo debe poder recibir datos por USB sin encriptar. Esto permite el uso de una interfaz serial genérica.
 		\end{enumerate}
 	\item Requerimientos de documentación
@@ -231,7 +232,7 @@ Para el desarrollo del presente proyecto se supone que:
 			\item Se deberá testear comunicación USB.
 			\item Se deberá testear comunicación Wi-Fi.
 			\item Se deberá testear el acceso a la base de datos web de forma aislada.
-			\item Se debe testear la comunicación LoRa con otro dispositivo en tierra que recepciones la señal que el prototipo emite. Para el testeo los dispositivos pueden estar a distancias inferiores a un metro y sin uso obligatorio de la antena.
+			\item Se debe testear la comunicación LoRa con un dispositivo en tierra que reciba la señal que el prototipo emite. Para el testeo los dispositivos pueden estar a distancias inferiores a un metro y sin uso obligatorio de una antena.
 		\end{enumerate}
 \end{enumerate}
 
@@ -363,26 +364,15 @@ Cantidad total de horas: 600 hs.
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior. 
-
-%La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
-
-%\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
-
-\end{consigna}
+A continuación se observa el gráfico del Activity on Node. Se señala en color rojo el camino crítico.
+Los colores están asignados por categoría según el desgloce de tareas del inciso previo. Los tiempos t están dados en horas.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=1.08\textwidth]{./Figuras/Activity On Node.jpg}
 \caption{Diagrama en \textit{Activity on Node}}
 \label{fig:AoN}
 \end{figure}
-
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
-
 
 
 \section{11. Diagrama de Gantt}
@@ -438,16 +428,6 @@ Si se observa únicamente las interdependencias, las tareas pueden realizarse si
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
-
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-\end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -457,27 +437,36 @@ IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
+  \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
+  
+\multicolumn{1}{|l|}{Placa Node-MCU (ESP32)} &1
+   &\$ 4500
+   &\$ 4500
    \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
+\multicolumn{1}{|l|}{Módulo LoRa E22} &1
+   &\$ 1600
+   &\$ 1600
+   \\ \hline
+\multicolumn{1}{|l|}{Antena QFH 920 MHz} &1
+   &\$ 2000
+   &\$ 2000
+   \\ \hline
+\multicolumn{1}{|l|}{Batería LiPo} &1
+   &\$ 4000
+   &\$ 4000
+   \\ \hline
+\multicolumn{1}{|l|}{Caja estanca} &1
+   &\$ 600
+   &\$ 600
+   \\ \hline
+\multicolumn{1}{|l|}{Componentes electrónicos} &1
+   &\$ 3000
+   &\$ 3000
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$ 15700} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -485,22 +474,22 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
+\multicolumn{1}{|l|}{20\% del costo directo} &1
+   &\$ 3140
+   &\$ 3140
    \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
+\multicolumn{1}{|l|}{Impuestos de importación del módulo LoRa 65\%} &1
+   &\$ 1040
+   &\$ 1040
    \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
+\multicolumn{1}{|l|}{Envío de materiales} &1
+   &\$ 3000
+   &\$ 3000
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{\$ 7180} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
+\multicolumn{3}{|c|}{TOTAL} &\$ 22880
    \\ \hline
 \end{tabularx}%
 \end{table}
