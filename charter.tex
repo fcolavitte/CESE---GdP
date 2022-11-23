@@ -73,7 +73,7 @@ v0.0      & Creación del documento                                 &\fechaInici
 v1.0      & Se completa hasta el punto 5 inclusive                 & 03 de noviembre de 2022 \\ \hline
 v2.0      & Se completa hasta el punto 9 inclusive                & 10 de noviembre de 2022 \\ \hline
 v3.0      & Se completa hasta el punto 12 inclusive               & 17 de noviembre de 2022 \\ \hline
-%v4.0      & Se completa el plan	                               & 24 de noviembre de 2022 \\ \hline
+v4.0      & Se completa el plan	                               & 24 de noviembre de 2022 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -90,7 +90,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el diseño de un prototipo modular, versátil, para realizar pruebas de comunicación unidireccional con satélites de órbita baja usando un módulo LoRa, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$30.000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el diseño de un prototipo modular, versátil, para realizar pruebas de comunicación unidireccional con satélites de órbita baja usando un módulo LoRa, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$22.880, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,7 +115,7 @@ Se adjunta a esta acta la planificación inicial.
 
 El siguiente proyecto tendrá como objetivo desarrollar un prototipo para realizar pruebas de comunicación unidireccional con satélites de la empresa Satellogic. Esta última posee actualmente satélites de órbita baja para mapeo de la superficie terrestre mediante sistema de capturas de imágenes. Su objetivo es agregar a su cartera de servicios satelitales la posibilidad de recibir información de dispositivos IoT en tierra para ofrecerle una alternativa económica a los medios de comunicación tradicionales. Para esto, se realizará un dispositivo modular, que permita cambiar fácilmente la antena de transmición, incorporar estapas de amplificación de señal y modificación y carga del firmware de forma simple por USB. Esto da como resultado un dispositivo versátil que permite enviar datos tomados en tierra y emitirlos a la frecuencia de comunicación de los satélite de Satellogic.
 
-Durante el actual proyecto solo se realizará comunicación entre dispositivos en tierra, no una comunicación real con un satélite. Tras finalizar el proyecto, la empresa probará las comunicaciones con los satélites en órbita, quedando dicha prueba fuera del alcance del presente trabajo. La comunicación descrita previamente entre dispositivos IoT y satélites no existe hoy en día y Satelogic tiene la hipótesis de que la comunicación LoRa a 920 MHz podría funciona.
+Durante el actual proyecto solo se realizará comunicación entre dispositivos en tierra, no una comunicación real con un satélite. Tras finalizar el proyecto, la empresa probará las comunicaciones con los satélites en órbita, quedando dicha prueba fuera del alcance del presente trabajo. La comunicación descrita previamente entre dispositivos IoT y satélites no existe hoy en día y Satelogic tiene la hipótesis de que la comunicación LoRa a 920 MHz podría funcionar.
 El dispositivo deberá emitir señal a través de un módulo LoRa de forma unidireccional. Los datos a enviar por el prototipo deben poder ser tomados por USB o Wi-Fi.
 
 
@@ -137,7 +137,7 @@ Como se observa en la figura \ref{fig:diagBloques}, el dispositivo posee:
 \vspace{25px}
 
 La propuesta de valor del proyecto es que a día de hoy no existe en el mercado un dispositivo comercial específico para tomar datos por USB y enviarlos a satélites de órbita baja de forma económica.
-El desarrollo de este dispositivo se hará a través de dos trabajos de posgrado, uno es este, que se destaca en incorporar conexión Wi-Fi. Esto permite que el dispositivo pueda utilizarse de forma remota incluso cuando las condiciones climáticas no sean óptimas para el personal que lo comandará.
+El desarrollo de este dispositivo se hará a través de dos trabajos de posgrado, uno es este, que se destaca por incorporar conexión Wi-Fi. Esto permite que el dispositivo pueda utilizarse de forma remota incluso cuando las condiciones climáticas no sean óptimas para el personal que lo comandará.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -224,7 +224,7 @@ Para el desarrollo del presente proyecto se supone que:
 	\item Requerimientos de documentación
 		\begin{enumerate}
 			\item Se debe entregar al cliente un manual de usuario que describa el funcionamiento y la operación del prototipo.
-			\item Se debe entregar al cliente la documentación del firmware desarrollado con un detalle o  explicación detallada de cada función desarrollada.
+			\item Se debe entregar al cliente la documentación del firmware desarrollado con un detalle de cada función desarrollada.
 			\item Se debe realizar al menos un informe de avance dirigido al cliente previo a la finalización del proyecto.
 		\end{enumerate}
 	\item Requerimiento de testing
@@ -498,69 +498,99 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+a) Identificación de los riesgos y estimación de sus consecuencias:
 
-Riesgo 2:
+Riesgo 1: Dificultad en la importación del módulo LoRa E22.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (S): 8. El proyecto está basado en éste módulo según un estudio técnico previo realizado por Satellogic el cual indíca que es óptimo para la comunicación con los satélites.
+	\item Probabilidad de ocurrencia (O): 5. Dado los inconvenientes económicos que está atravesando el país, es factible que surga una política de prohibición de importación que impida la adquisición del componente.
+\end{itemize} 
+
+Riesgo 2: Variación de los precios de los componentes a lo largo de la vida del proyecto.
+\begin{itemize}
+	\item Severidad (S): 2. El costo del proyecto es reducido para una empresa como Satellogic, por lo que el aumento de los componentes del prototipo no representa una gran amenaza.
+	\item Probabilidad de ocurrencia (O): 9. Los precios de los componentes suelen aumentar de forma regular a lo largo de cada año.
 \end{itemize}
 
-Riesgo 3:
+Riesgo 3: Cambios en las políticas de uso de la base de datos web Firebase.
 \begin{itemize}
-	\item Severidad (S): 
-	\item Ocurrencia (O):
+	\item Severidad (S): 7. El control del prototipo por medios web depende de la base de datos, lo que implicaría cambiar el firmware para adaptar el código y la elaboración de otra base de datos.
+	\item Probabilidad de ocurrencia (O): 2. Firebase pertenece a Google, en caso de ocurrir cambios en las políticas, es probable que se avise con suficiente antelación.
 \end{itemize}
 
+Riesgo 4: Falta de antenas QFH de la frecuencia necesaria en el mercado.
+\begin{itemize}
+	\item Severidad (S): 2. En caso de no encontrarse una antena QFH de las características necesarias en el mercado se tiene que desarrollar una, lo que aumentará el tiempo requerido para llevar adelante el proyecto. El tiempo requerido para diseñar una antena QFH es menor a 20 horas.
+	\item Probabilidad de ocurrencia (O): 5. Es posible que esta condición se dé al momento de realizar la compra de materiales.
+\end{itemize} 
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+Riesgo 5: Aumento de la carga horaria laboral, lo que reducirá el tiempo disponible a la realización del proyecto.
+\begin{itemize}
+	\item Severidad (S): 8. La reducción de horas diarias disponibles para llevar a cabo el proyecto prolongará la fecha de finalización.
+	\item Probabilidad de ocurrencia (O): 7. La posibilidad de que durante ciertos meses la carga horaria laboral aumente es elevada, pero es poco probable que sea por más de cuatro meses.
+\end{itemize} 
+
+
+
+
+
+b) Tabla de gestión de riesgos. El RPN se calcula como el producto entre S y O.\\
+Nota: los valores marcados con (*) en la siguiente tabla corresponden a los valores luego de haber aplicado la mitigación. Estos valores son calculados en el inciso c del actual punto.
 
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Riesgo  & S & O & RPN & S* & O* & RPN* \\ \hline
+Riesgo 1& 8 & 5 &  40 & 10 &  1 &  10  \\ \hline
+Riesgo 2& 2 & 9 &  18 &    &    &      \\ \hline
+Riesgo 3& 7 & 2 &  14 &    &    &      \\ \hline
+Riesgo 4& 2 & 5 &  10 &    &    &      \\ \hline
+Riesgo 5& 8 & 7 &  56 &  8 &  2 &  16  \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
-
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 20.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
+Riesgo 1: El dispositivo se realizará utilizando módulos LoRa de frecuencia compatible que estén en stock en el mercado argentino agregando una etapa de amplificación posterior.
+\begin{itemize}
+	\item Severidad (S*): 10. Si no se encuentra stock de módulos LoRa compatibles no se podrá avanzar con el proyecto.
+	\item Probabilidad de ocurrencia (O*): 1. Actualmente existe stock y gran variedad de módulos LoRa en el mercado nacional.
+\end{itemize} 
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-
-\end{consigna}
+Riesgo 5: En los meses en que la carga horaria laboral sea reducida se incrementarán las horas dedicadas al proyecto. De esta forma se compenzarán los meses de baja disponibilidad de tiempo.
+\begin{itemize}
+	\item Severidad (S*): 8. En caso de no disponer de tiempo suficiente la entrega del proyecto se debe posponer.
+	\item Probabilidad de ocurrencia (O*): 2. Es poco probable que los primeros meses del proyecto se tenga una elevada carga horaria laboral.    
+\end{itemize}
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
+
+\begin{itemize} 
+\item Req \#1: requerimientos funcionales.
+\begin{itemize}
+	\item Verificación: . 
+	\item Validación: .  
+\end{itemize}
+\item Req \#2: requerimientos de documentación.
+\begin{itemize}
+	\item Verificación: . 
+	\item Validación: .  
+\end{itemize}
+\item Req \#3: requerimientos de testing.
+\begin{itemize}
+	\item Verificación: . 
+	\item Validación: .  
+\end{itemize}
+
+\end{itemize}
+
 
 \begin{consigna}{red}
 Para cada uno de los requerimientos del proyecto indique:
